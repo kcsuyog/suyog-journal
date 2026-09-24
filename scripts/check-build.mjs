@@ -58,7 +58,14 @@ try {
     !existsSync("dist/verification-draft") &&
       !existsSync("dist/verification-future"),
   );
-  for (const slug of ["retreat-to-tatopani", "review-of-norwegian-wood"]) {
+  const publishedSlugs = [
+    "retreat-to-tatopani", "review-of-norwegian-wood",
+    "parallel-work-with-orca", "skills-across-claude-codex-and-hermes",
+    "tech-lead-when-code-gets-faster",
+  ];
+  const feed = readFileSync("dist/rss.xml", "utf8");
+  const publishedCount = (feed.match(/<item>/g) ?? []).length;
+  for (const slug of publishedSlugs) {
     const html = readFileSync(`dist/${slug}/index.html`, "utf8");
     assert(html.includes(`https://www.suyogkc.com.np/${slug}/`));
     assert(readFileSync("dist/rss.xml", "utf8").includes(`/${slug}/`));
@@ -102,7 +109,7 @@ try {
     path: "test-results/home-desktop.png",
     fullPage: true,
   });
-  assert.equal(await page.locator(".post-card:visible").count(), 2);
+  assert.equal(await page.locator(".post-card:visible").count(), publishedCount);
   await page.getByRole("button", { name: "Books", exact: true }).click();
   assert.equal(await page.locator(".post-card:visible").count(), 1);
   assert.match(
@@ -127,7 +134,7 @@ try {
   await page
     .getByRole("button", { name: "Resume motion", exact: true })
     .click();
-  await page.locator("h3 a").first().click();
+  await page.locator("h3 a").filter({ hasText: "Norwegian Wood" }).click();
   await page.waitForURL("**/review-of-norwegian-wood/");
   assert(await page.locator(".prose").isVisible());
   await page.screenshot({
@@ -139,6 +146,9 @@ try {
     for (const route of [
       "/",
       "/retreat-to-tatopani/",
+      "/parallel-work-with-orca/",
+      "/skills-across-claude-codex-and-hermes/",
+      "/tech-lead-when-code-gets-faster/",
       "/about/",
       "/contact/",
     ]) {
@@ -189,7 +199,7 @@ try {
   const noJs = await browser.newContext({ javaScriptEnabled: false });
   const fallback = await noJs.newPage();
   await fallback.goto("http://127.0.0.1:4329");
-  assert.equal(await fallback.locator(".post-card:visible").count(), 2);
+  assert.equal(await fallback.locator(".post-card:visible").count(), publishedCount);
   assert(!(await fallback.locator("#journal-tools").isVisible()));
   await fallback.goto("http://127.0.0.1:4329/retreat-to-tatopani/");
   assert.match(await fallback.locator(".prose").innerText(), /Pokhara/);
