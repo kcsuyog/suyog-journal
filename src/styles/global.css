@@ -1123,3 +1123,9 @@ html[data-motion="off"]::view-transition-new(*) {
     width: calc(100% - 30px);
   }
 }
+
+.post-image img[src="/images/orca-software-factory.webp"],
+.article-cover[src="/images/orca-software-factory.webp"] {
+  object-fit: contain;
+  background: #161616;
+}
