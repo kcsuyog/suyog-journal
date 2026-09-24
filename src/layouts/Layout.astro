@@ -26,14 +26,14 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <header class="site-header wrap">
       <a class="wordmark" href="/" aria-label="Suyog K.C. home">suyog<span class="brand-dot">✳</span></a>
       <nav aria-label="Main navigation">
-        <a href="/#journal">Journal</a><a href="/about/" aria-current={Astro.url.pathname === '/about/' ? 'page' : undefined}>About</a>
+        <a href="/#journal">Journal</a><a href="/about/" aria-current={Astro.url.pathname === '/about/' ? 'page' : undefined}>Profile</a>
         <a class="contact-link" href="/contact/">Say hello <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
     <main id="main"><slot /></main>
     <footer class="site-footer wrap">
       <div><a class="wordmark" href="/">suyog<span>✳</span></a><p>A little space for a curious mind.</p></div>
-      <div class="footer-links"><a href="https://github.com/kcsuyog">GitHub ↗</a><a href="/rss.xml">RSS</a><button id="motion-toggle" type="button" aria-pressed="false">Pause motion</button><span>© {new Date().getFullYear()} Suyog K.C.</span></div>
+      <div class="footer-links"><a href="https://github.com/kcsuyog">GitHub ↗</a><a href="/resume/">Résumé</a><a href="/rss.xml">RSS</a><button id="motion-toggle" type="button" aria-pressed="false">Pause motion</button><span>© {new Date().getFullYear()} Suyog K.C.</span></div>
     </footer>
     <script>
       const button = document.querySelector<HTMLButtonElement>('#motion-toggle')!;

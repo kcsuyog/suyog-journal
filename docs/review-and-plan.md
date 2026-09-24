@@ -60,3 +60,9 @@ No CMS (user chose Markdown), database, logins, React component library, animati
 ## Verification result
 
 TypeScript/Astro checks passed with zero errors, warnings or hints. Production generation and browser checks passed: original routes, RSS, draft/future-date exclusion, safe post creation, category/search interactions, empty results, persistent motion pause, OS reduced motion, loaded images, 390px and 320px viewport overflow checks, and no-JavaScript article reading. Desktop and mobile screenshots are in `test-results/` (ignored by Git). No remote deployment has been performed.
+
+## Follow-up: editorial polish, profile and résumé
+
+At the author’s request, both 2018 articles were copyedited for grammar and structure while retaining their dates, URLs, stories and opinions. The profile now includes verified experience and public work, with an HTML résumé and a generated one-page PDF. Employment dates, education and numerical achievements are omitted where not verified. Profile and résumé content share `src/data/profile.json`.
+
+Article entrances, scroll reveals and a reading-progress bar extend the existing motion. Native CSS timelines are feature-detected; pause and reduced-motion controls disable decorative animation. Production browser checks cover scrolling, pause/reduced-motion behaviour, profile-to-résumé navigation and the PDF download.

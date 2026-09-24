@@ -1,0 +1,23 @@
+{
+  "name": "Suyog KC",
+  "headline": "Full-stack Developer & Technical Lead",
+  "email": "suyogkrazz@gmail.com",
+  "website": "https://suyogkc.netlify.app",
+  "github": "https://github.com/kcsuyog",
+  "linkedin": "https://www.linkedin.com/in/suyogkc/",
+  "summary": "Full-stack developer and technical lead focused on useful software, clear user experiences, and reviewable delivery. Experience spans product engineering, remote agency work, co-founding a software consultancy, and using AI agents with explicit scope and verification.",
+  "skills": [
+    {"label": "Engineering", "items": "JavaScript, TypeScript, Ruby on Rails, Vue, React, Astro, API development"},
+    {"label": "Delivery & leadership", "items": "Technical planning, code review, feature decomposition, behaviour testing, cross-functional collaboration"},
+    {"label": "AI-assisted development", "items": "Orca worktrees, Claude Code, Codex, Hermes skills, agent orchestration, independent review"}
+  ],
+  "experience": [
+    {"company": "ShiftCare", "role": "Full-stack development & technical leadership", "period": "Current", "points": ["Contribute across application features, APIs, and administrative user experiences.", "Review changes for correctness, query scope, maintainability, and evidence of expected behaviour.", "Structure larger work into reviewable changes and develop agent workflows with explicit ownership and verification."]},
+    {"company": "PineSoft", "role": "Co-founder", "period": "Previous", "points": ["Co-founded a software consulting firm and helped grow its consulting work.", "Collaborated with teams to build products for consumer and business use."]},
+    {"company": "Independent & agency work", "role": "Freelance developer", "period": "Previous", "points": ["Worked remotely with agencies and product teams on software delivery and user experiences."]}
+  ],
+  "projects": [
+    {"name": "Suyog’s journal", "url": "https://github.com/kcsuyog/suyog-journal", "description": "Personal publication built with Astro and Markdown, preserving existing article URLs and adding accessible motion, local search, RSS, and browser checks."},
+    {"name": "ShiftCare AI Skills", "url": "https://github.com/shiftcare/ai-skills/pull/20", "description": "Contributed public documentation covering discoverability, access and permissions, and security reporting for AI-agent skills."}
+  ]
+}

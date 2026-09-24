@@ -150,6 +150,7 @@ try {
       "/skills-across-claude-codex-and-hermes/",
       "/tech-lead-when-code-gets-faster/",
       "/about/",
+      "/resume/",
       "/contact/",
     ]) {
       await page.goto(`http://127.0.0.1:4329${route}`);
@@ -203,6 +204,29 @@ try {
   assert(!(await fallback.locator("#journal-tools").isVisible()));
   await fallback.goto("http://127.0.0.1:4329/retreat-to-tatopani/");
   assert.match(await fallback.locator(".prose").innerText(), /Pokhara/);
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('http://127.0.0.1:4329/retreat-to-tatopani/');
+  const progress = page.locator('.reading-progress');
+  if (await page.evaluate(() => CSS.supports('animation-timeline', 'scroll()'))) {
+    await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; window.scrollTo(0, 0); });
+    await page.waitForTimeout(200);
+    const before = await progress.evaluate(el => getComputedStyle(el).transform);
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(200);
+    assert.notEqual(await progress.evaluate(el => getComputedStyle(el).transform), before, 'Reading bar must track scrolling');
+    await page.getByRole('button', {name: 'Pause motion', exact: true}).click();
+    assert(!(await progress.isVisible()), 'Pause control must hide reading animation');
+    await page.getByRole('button', {name: 'Resume motion', exact: true}).click();
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    assert(!(await progress.isVisible()), 'Reduced motion must hide reading animation');
+  }
+  await page.goto('http://127.0.0.1:4329/about/');
+  await page.getByRole('link', {name: 'View résumé'}).click();
+  await page.waitForURL('**/resume/');
+  assert.match(await page.locator('.resume').innerText(), /ShiftCare/);
+  const pdfResponse = await fetch('http://127.0.0.1:4329/suyog-kc-resume.pdf');
+  assert.equal(pdfResponse.status, 200);
+  assert((await pdfResponse.text()).startsWith('%PDF-'), 'Download must be a real PDF');
   assert.deepEqual(errors, [], "No browser runtime errors");
   console.log(
     "Passed: draft/future exclusion, post creation safety, legacy URLs, RSS, filters, search, motion, desktop/mobile, images, no-JS reading.",

@@ -10,6 +10,7 @@ const { Content } = await render(post);
 const minutes = Math.max(1, Math.ceil((post.body ?? '').split(/\s+/).length / 220));
 ---
 <Layout title={`${post.data.title} — Suyog K.C.`} description={post.data.description} image={post.data.cover} article>
+  <div class="reading-progress" aria-hidden="true"></div>
   <article class="article wrap">
     <a class="back-link" href="/#journal">← Back to the journal</a>
     <header class="article-header"><div class="post-meta"><span>{post.data.category}</span><time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time><span>{minutes} min read</span></div><h1>{post.data.title}</h1><p>{post.data.description}</p></header>

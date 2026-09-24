@@ -68,3 +68,9 @@ The homepage uses lavender, ink blue, and yellow-green with Manrope and Fraunces
 There is no CMS, analytics, external search service, comments system, or contact backend. Contact opens an email draft or links to your public profiles. Add those services only if you want their specific workflows. Search currently runs over the published article text embedded in the homepage; revisit this when the archive reaches hundreds of posts.
 
 See [the review and implementation plan](docs/review-and-plan.md) for findings and framework tradeoffs. Original content/assets retain their provenance; the legacy repository’s MIT notice is preserved in `LICENSE.legacy`.
+
+## Profile and résumé
+
+Edit `src/data/profile.json` to update the profile and HTML résumé together. Rebuild the downloadable PDF with `uv run --with reportlab --with pypdf scripts/build-resume.py`, then run the site checks and commit the JSON and PDF together. The PDF is checked in so Netlify does not need Python. Employment dates, education, and numerical achievements are intentionally omitted until supplied and verified.
+
+Article pages include entrance motion and a scroll-linked reading bar; archive cards, article photos, and profile cards have progressive scroll reveals where the browser supports CSS animation timelines. All effects respect the existing pause control and OS reduced-motion setting.

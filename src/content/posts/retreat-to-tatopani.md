@@ -1,21 +1,38 @@
 ---
-title: "Retreat To Tatopani"
-description: "Finding motivation in the hills outside Pokhara."
+title: "Retreat to Tatopani"
+description: "A rainy ride out of Pokhara, a Kindle in my bag, and a welcome break from the everyday."
 date: "2018-05-05"
 category: "Life"
 cover: "/images/tatos.jpg"
-coverAlt: "Green hills and cloud-covered mountains at Tatopani"
+coverAlt: "A terrace overlooking the green hills and cloud-covered mountains at Tatopani"
 ---
 
-Lately, It’s been getting quite monotonous. Going to work and back with little time to spend on me has been a daily routine for quite a time now. Well, I also had to try out my s9 camera on some good landscapes. So I decided to leave for Pokhara. Since there was a holiday in buddhajayenti and I took a leave for the day after from office resulting in 4 days off from office including weekends. It would take a whole day to reach Pokhara from Kathmandu, I had already wasted my two days of my short vacation. I packed my Kindle with The Alchemist Paulo Coelho for a reread during my trip. I have been getting a recommendation of Norwegian Wood from a coworker, Maybe I will read that next time. Next day I meet up with old pal and decided to go to Tatopani resort near Pokhara. We set off around 5 pm and reached our destination at about 7 pm. The road was quite good but it was raining all the way.
+Life had started to feel monotonous: work, home, repeat, with very little time left for myself. I needed a change of scenery. I also had a new S9 camera that deserved something more interesting to photograph than my daily routine.
 
-![The green hills around Tatopani](/images/tatos.jpg)
+So I decided to head to Pokhara.
 
-<p align="center" > <i>
-Loved this view .Coke and old durbar never tested so much better.</i> </p>
+## Making room for a break
 
-The view made it worth the rainy trip.I recommend it to anyone who wants to get in touch with nature. [Tatopani Resort](https://www.facebook.com/BhurjungKholaTatopani/)
+The Buddha Jayanti holiday, an extra day of leave, and the weekend gave me four days off. By the time I got moving, I had already used up two of them, and the journey from Kathmandu to Pokhara would take most of another day. It wasn't the most carefully planned escape, but I packed my Kindle and went anyway.
 
-![A dog resting at Tatopani](/images/20180430_091658.jpg)
+I took *The Alchemist* by Paulo Coelho for a reread. A coworker had also been recommending *Norwegian Wood*. That one would have to wait for another trip.
 
-<p align="center" > <i>Made a new friend </i>😍 </p>
+## A rainy ride to Tatopani
+
+The next day, I met an old friend, and we decided to visit Tatopani Resort near Pokhara. We set off around 5 pm and arrived at about 7. The road was quite good, but it rained the whole way.
+
+The view made the wet journey worth it.
+
+<figure>
+  <img src="/images/tatos.jpg" alt="Coke and Old Durbar on a terrace with green hills and misty mountains beyond" loading="lazy" />
+  <figcaption>Coke and Old Durbar had never tasted quite so good.</figcaption>
+</figure>
+
+After so much of the same routine, it was good to sit somewhere different, look out at the hills, and have nowhere else I needed to be for a while.
+
+<figure>
+  <img src="/images/20180430_091658.jpg" alt="A dog I met during the stay at Tatopani" loading="lazy" />
+  <figcaption>Made a new friend, too.</figcaption>
+</figure>
+
+If you're looking for a little time close to nature, [Tatopani Resort](https://www.facebook.com/BhurjungKholaTatopani/) was a lovely stop on this trip. I went looking for a break from the everyday. A rainy road, an old friend, and that view were enough.
