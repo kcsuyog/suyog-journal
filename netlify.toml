@@ -1,0 +1,17 @@
+[build]
+command = "npm run build"
+publish = "dist"
+[build.environment]
+NODE_VERSION = "22"
+[[redirects]]
+from = "/search"
+to = "/#journal"
+status = 301
+[[redirects]]
+from = "/starters"
+to = "/about/"
+status = 301
+[[redirects]]
+from = "/success"
+to = "/contact/"
+status = 301

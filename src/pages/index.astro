@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { publishedPosts, formatDate } from '../lib/posts';
+const posts = await publishedPosts();
+const categories = [...new Set(posts.map(post => post.data.category))];
+---
+<Layout>
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="hello"><span></span> Hey, I’m Suyog.</p>
+      <h1>A curious<br />little corner<br />of the internet<span class="period">.</span></h1>
+      <p class="intro">I build things for the web. And sometimes,<br class="desktop-break" /> I step away to find a story worth telling.</p>
+      <a class="pill-link" href="#journal">Explore the journal <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="collage" aria-label="Photographs from Suyog’s journal">
+      <div class="orbit" aria-hidden="true"></div>
+      <span class="spark spark-one" aria-hidden="true">✳</span>
+      <a class="photo photo-landscape" href="/retreat-to-tatopani/">
+        <img src="/images/tatos.jpg" width="560" height="420" alt="Green hills at Tatopani, Nepal" fetchpriority="high" />
+        <span>A little further from the everyday.</span>
+      </a>
+      <a class="photo photo-book" href="/review-of-norwegian-wood/">
+        <img src="/images/wood.jpg" width="220" height="250" alt="Norwegian Wood — open the book review" />
+        <span>One more chapter.</span>
+      </a>
+      <div class="sticker" aria-hidden="true">Always<br /><em>curious.</em></div>
+      <span class="spark spark-two" aria-hidden="true">✳</span>
+      <span class="handwritten" aria-hidden="true">a few things<br />from my world ⤴</span>
+    </div>
+    <div class="hero-bottom"><span>Code. Books. Life. Repeat.</span><a href="#journal" aria-label="Scroll to journal">Scroll a little <span aria-hidden="true">↓</span></a></div>
+  </section>
+  <div class="ribbon" aria-hidden="true"><div class="ribbon-track">{Array.from({length: 4}, () => <span>Stories from the in-between <b>✳</b> Stay curious <b>✳</b> Take the scenic route <b>✳</b></span>)}</div></div>
+  <section class="journal wrap" id="journal">
+    <div class="section-heading"><div><p class="eyebrow">The journal</p><h2>Things that stayed with me.</h2></div><p>Places, pages, and a few<br />thoughts along the way.</p></div>
+    <div class="journal-tools" hidden id="journal-tools">
+      <div class="filters" role="group" aria-label="Filter by topic"><button type="button" data-category="all" aria-pressed="true">Everything <span>{posts.length}</span></button>{categories.map(category => <button type="button" data-category={category} aria-pressed="false">{category}</button>)}</div>
+      <label class="search-label"><span class="sr-only">Search journal</span><input id="search" type="search" placeholder="Find a story…" /><span aria-hidden="true">⌕</span></label>
+    </div>
+    <div class="post-grid" id="posts">{posts.map(post => (
+      <article class="post-card" data-category={post.data.category} data-search={`${post.data.title} ${post.data.description} ${post.data.category} ${post.body}`.toLowerCase()}>
+        <a class="post-image" href={`/${post.id}/`} tabindex="-1" aria-hidden="true"><img src={post.data.cover} alt="" width="700" height="480" loading="lazy" /><span class="read-arrow">↗</span></a>
+        <div class="post-meta"><span>{post.data.category}</span><time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time></div>
+        <h3><a href={`/${post.id}/`}>{post.data.title}</a></h3><p>{post.data.description}</p>
+      </article>
+    ))}</div>
+    <p id="no-results" hidden>No stories found. Try another word or choose Everything.</p>
+    <p id="result-status" class="sr-only" aria-live="polite"></p>
+  </section>
+  <section class="about-strip wrap"><img src="/images/suyog.jpg" width="120" height="120" alt="Suyog K.C." loading="lazy" /><div><p class="eyebrow">The person behind the pixels</p><h2>A developer. A reader.<br />A work in progress.</h2><p>Good software, a good book, a change of scenery.<br />There’s always something to be curious about.</p></div><a class="pill-link" href="/about/">A little about me <span aria-hidden="true">↗</span></a></section>
+</Layout>
+<script>
+  const controls = document.querySelector<HTMLElement>('#journal-tools')!;
+  controls.hidden = false;
+  const search = document.querySelector<HTMLInputElement>('#search')!;
+  const cards = [...document.querySelectorAll<HTMLElement>('.post-card')];
+  const filters = [...document.querySelectorAll<HTMLButtonElement>('[data-category][type="button"]')];
+  let category = 'all';
+  // ponytail: linear search suits this small archive; use a static index for hundreds of posts.
+  const filter = () => {
+    let count = 0;
+    for (const card of cards) {
+      card.hidden = !((category === 'all' || card.dataset.category === category) && card.dataset.search!.includes(search.value.trim().toLowerCase()));
+      if (!card.hidden) count++;
+    }
+    document.querySelector<HTMLElement>('#no-results')!.hidden = count !== 0;
+    document.querySelector('#result-status')!.textContent = `${count} ${count === 1 ? 'story' : 'stories'} found`;
+  };
+  filters.forEach(button => button.addEventListener('click', () => {
+    category = button.dataset.category!;
+    filters.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    filter();
+  }));
+  search.addEventListener('input', filter);
+  const collage = document.querySelector<HTMLElement>('.collage')!;
+  collage.addEventListener('pointermove', event => {
+    if (matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches || document.documentElement.dataset.motion === 'off') return;
+    const rect = collage.getBoundingClientRect();
+    collage.style.setProperty('--dx', `${(event.clientX - rect.left - rect.width / 2) / 25}px`);
+    collage.style.setProperty('--dy', `${(event.clientY - rect.top - rect.height / 2) / 25}px`);
+  });
+  collage.addEventListener('pointerleave', () => { collage.style.setProperty('--dx', '0px'); collage.style.setProperty('--dy', '0px'); });
+</script>

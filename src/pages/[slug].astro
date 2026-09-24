@@ -1,0 +1,20 @@
+---
+import { render } from 'astro:content';
+import { publishedPosts, formatDate } from '../lib/posts';
+import Layout from '../layouts/Layout.astro';
+export async function getStaticPaths() {
+  return (await publishedPosts()).map(post => ({ params: { slug: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+const minutes = Math.max(1, Math.ceil((post.body ?? '').split(/\s+/).length / 220));
+---
+<Layout title={`${post.data.title} — Suyog K.C.`} description={post.data.description} image={post.data.cover} article>
+  <article class="article wrap">
+    <a class="back-link" href="/#journal">← Back to the journal</a>
+    <header class="article-header"><div class="post-meta"><span>{post.data.category}</span><time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time><span>{minutes} min read</span></div><h1>{post.data.title}</h1><p>{post.data.description}</p></header>
+    <img class="article-cover" src={post.data.cover} alt={post.data.coverAlt} width="1200" height="650" fetchpriority="high" />
+    <div class="prose"><Content /></div>
+    <div class="article-signoff"><img src="/images/suyog.jpg" alt="" width="56" height="56" /><p>Written by Suyog K.C.<br /><a href="/about/">Developer, reader, curious human.</a></p><a href="/#journal">More stories ↗</a></div>
+  </article>
+</Layout>

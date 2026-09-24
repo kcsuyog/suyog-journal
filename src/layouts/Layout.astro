@@ -1,0 +1,57 @@
+---
+import '@fontsource-variable/manrope';
+import '@fontsource-variable/fraunces';
+import '../styles/global.css';
+interface Props { title?: string; description?: string; image?: string; article?: boolean; }
+const { title = 'Suyog K.C. — A curious little corner of the internet', description = 'Notes on books, life, and the things in between. A personal journal by Suyog K.C.', image = '/images/tatos.jpg', article = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#e9e5fa" />
+    <title>{title}</title><meta name="description" content={description} />
+    <link rel="canonical" href={canonical} /><link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Suyog’s journal" href="/rss.xml" />
+    <meta property="og:title" content={title} /><meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} /><meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:type" content={article ? 'article' : 'website'} /><meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>
+      try { if (localStorage.getItem('motion') === 'off') document.documentElement.dataset.motion = 'off'; } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="/" aria-label="Suyog K.C. home">suyog<span class="brand-dot">✳</span></a>
+      <nav aria-label="Main navigation">
+        <a href="/#journal">Journal</a><a href="/about/" aria-current={Astro.url.pathname === '/about/' ? 'page' : undefined}>About</a>
+        <a class="contact-link" href="/contact/">Say hello <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+    <main id="main"><slot /></main>
+    <footer class="site-footer wrap">
+      <div><a class="wordmark" href="/">suyog<span>✳</span></a><p>A little space for a curious mind.</p></div>
+      <div class="footer-links"><a href="https://github.com/kcsuyog">GitHub ↗</a><a href="/rss.xml">RSS</a><button id="motion-toggle" type="button" aria-pressed="false">Pause motion</button><span>© {new Date().getFullYear()} Suyog K.C.</span></div>
+    </footer>
+    <script>
+      const button = document.querySelector<HTMLButtonElement>('#motion-toggle')!;
+      const preference = matchMedia('(prefers-reduced-motion: reduce)');
+      const sync = () => {
+        const paused = document.documentElement.dataset.motion === 'off' || preference.matches;
+        button.textContent = preference.matches ? 'Reduced motion enabled' : paused ? 'Resume motion' : 'Pause motion';
+        button.setAttribute('aria-pressed', String(paused));
+        button.disabled = preference.matches;
+      };
+      button.addEventListener('click', () => {
+        const paused = document.documentElement.dataset.motion !== 'off';
+        document.documentElement.dataset.motion = paused ? 'off' : 'on';
+        try { localStorage.setItem('motion', paused ? 'off' : 'on'); } catch {}
+        sync();
+      });
+      preference.addEventListener('change', sync);
+      sync();
+    </script>
+  </body>
+</html>

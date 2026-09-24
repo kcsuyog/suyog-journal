@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.suyogkc.com.np/sitemap-index.xml
