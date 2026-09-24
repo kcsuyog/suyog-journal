@@ -44,7 +44,7 @@ story.append(para(' | '.join([
 story.append(para(plain(profile['summary'])))
 story.append(para('Experience', 'section'))
 for item in profile['experience']:
-    block = [para(plain(item['company']) + ' <font size="9" color="#535365"> / ' + plain(item['period']) + '</font>', 'role'), para(plain(item['role']), 'meta')]
+    block = [para(plain(item['company']) + ' <font size="9" color="#535365"> / ' + plain(item['period']) + '</font>', 'role'), para(plain(item['role'] + (' | ' + item['location'] if item['location'] else '')), 'meta')]
     block += [para('- ' + plain(point), 'bullet') for point in item['points']]
     block.append(Spacer(1, 5))
     story.append(KeepTogether(block))
@@ -63,6 +63,6 @@ SimpleDocTemplate(str(output), pagesize=A4, rightMargin=42, leftMargin=42, topMa
 reader = PdfReader(output)
 assert len(reader.pages) == 1, 'Resume must fit one page; review content and spacing.'
 text = reader.pages[0].extract_text()
-for expected in [profile['name'], 'ShiftCare', 'PineSoft', 'Experience', 'Skills', 'Selected projects']:
+for expected in [profile['name'], 'Experience', 'Skills', 'Selected projects'] + [plain(item[key]) for item in profile['experience'] for key in ('company', 'period')]:
     assert expected in text, f'Missing resume text: {expected}'
 print(f'Created and checked {output} ({len(reader.pages)} page)')

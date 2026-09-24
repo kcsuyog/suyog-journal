@@ -5,19 +5,79 @@
   "website": "https://suyogkc.netlify.app",
   "github": "https://github.com/kcsuyog",
   "linkedin": "https://www.linkedin.com/in/suyogkc/",
-  "summary": "Full-stack developer and technical lead focused on useful software, clear user experiences, and reviewable delivery. Experience spans product engineering, remote agency work, co-founding a software consultancy, and using AI agents with explicit scope and verification.",
+  "summary": "Technical lead and full-stack developer with software engineering experience since 2014. Progressed from co-founding PineSoft to senior engineering and technical leadership at ShiftCare, building web and mobile products and guiding reviewable delivery.",
   "skills": [
-    {"label": "Engineering", "items": "JavaScript, TypeScript, Ruby on Rails, Vue, React, Astro, API development"},
-    {"label": "Delivery & leadership", "items": "Technical planning, code review, feature decomposition, behaviour testing, cross-functional collaboration"},
-    {"label": "AI-assisted development", "items": "Orca worktrees, Claude Code, Codex, Hermes skills, agent orchestration, independent review"}
+    {
+      "label": "Engineering",
+      "items": "Ruby on Rails, JavaScript, TypeScript, Vue.js, React, React Native, Node.js, PHP, Laravel, CodeIgniter, Angular, Ionic, Cordova, Astro"
+    },
+    {
+      "label": "Delivery & leadership",
+      "items": "Technical planning, code review, feature decomposition, behaviour testing, cross-functional collaboration"
+    },
+    {
+      "label": "AI-assisted development",
+      "items": "Orca worktrees, Claude Code, Codex, Hermes skills, agent orchestration, independent review"
+    }
   ],
   "experience": [
-    {"company": "ShiftCare", "role": "Full-stack development & technical leadership", "period": "Current", "points": ["Contribute across application features, APIs, and administrative user experiences.", "Review changes for correctness, query scope, maintainability, and evidence of expected behaviour.", "Structure larger work into reviewable changes and develop agent workflows with explicit ownership and verification."]},
-    {"company": "PineSoft", "role": "Co-founder", "period": "Previous", "points": ["Co-founded a software consulting firm and helped grow its consulting work.", "Collaborated with teams to build products for consumer and business use."]},
-    {"company": "Independent & agency work", "role": "Freelance developer", "period": "Previous", "points": ["Worked remotely with agencies and product teams on software delivery and user experiences."]}
+    {
+      "company": "ShiftCare",
+      "role": "Technical Lead",
+      "period": "Apr 2023 – Present",
+      "location": "Sydney, New South Wales, Australia · Hybrid",
+      "points": [
+        "Guide technical planning, code review, and delivery across application features and APIs.",
+        "Structure agent-assisted work with explicit ownership, reviewable scope, and verification."
+      ]
+    },
+    {
+      "company": "ShiftCare",
+      "role": "Senior Full Stack Developer",
+      "period": "Nov 2018 – May 2023",
+      "location": "Greater Sydney Area",
+      "points": [
+        "Built complex, dynamic user interfaces using Vue.js; worked with Ruby on Rails, React Native, and Node.js."
+      ]
+    },
+    {
+      "company": "Vayu Technology",
+      "role": "Software Engineer",
+      "period": "May 2017 – Oct 2018",
+      "location": "",
+      "points": [
+        "Translated interface designs into Vue.js and React.js code; worked with Ruby on Rails and React Native."
+      ]
+    },
+    {
+      "company": "SmartMobe Solutions Pvt. Ltd.",
+      "role": "Software Engineer",
+      "period": "May 2016 – Apr 2017",
+      "location": "Kathmandu, Nepal",
+      "points": [
+        "Developed Laravel backend services for multi-platform integrations; worked with Angular, PHP, and Cordova."
+      ]
+    },
+    {
+      "company": "Pine Software Solutions",
+      "role": "Software Engineer / Co-founder",
+      "period": "Jan 2014 – Apr 2016",
+      "location": "Pokhara, Nepal",
+      "points": [
+        "Co-founded PineSoft and grew its software consulting work using PHP, CodeIgniter, Angular, and Ionic."
+      ]
+    }
   ],
   "projects": [
-    {"name": "Suyog’s journal", "url": "https://github.com/kcsuyog/suyog-journal", "description": "Personal publication built with Astro and Markdown, preserving existing article URLs and adding accessible motion, local search, RSS, and browser checks."},
-    {"name": "ShiftCare AI Skills", "url": "https://github.com/shiftcare/ai-skills/pull/20", "description": "Contributed public documentation covering discoverability, access and permissions, and security reporting for AI-agent skills."}
+    {
+      "name": "Suyog’s journal",
+      "url": "https://github.com/kcsuyog/suyog-journal",
+      "description": "Personal publication built with Astro and Markdown, preserving existing article URLs and adding accessible motion, local search, RSS, and browser checks."
+    },
+    {
+      "name": "ShiftCare AI Skills",
+      "url": "https://github.com/shiftcare/ai-skills/pull/20",
+      "description": "Contributed public documentation covering discoverability, access and permissions, and security reporting for AI-agent skills."
+    }
   ]
 }

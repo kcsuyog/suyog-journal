@@ -7,7 +7,7 @@ import profile from '../data/profile.json';
     <div class="resume-toolbar"><a class="back-link" href="/about/">← Back to profile</a><a class="pill-link" href="/suyog-kc-resume.pdf" download>Download PDF <span aria-hidden="true">↓</span></a></div>
     <header class="resume-heading"><h1>{profile.name}</h1><p class="lead">{profile.headline}</p><div class="resume-contact"><a href={`mailto:${profile.email}`}>{profile.email}</a><a href={profile.website}>Website</a><a href={profile.github}>GitHub</a><a href={profile.linkedin}>LinkedIn</a></div></header>
     <p class="resume-summary">{profile.summary}</p>
-    <section><h2>Experience</h2>{profile.experience.map(item => <article class="resume-role"><div><h3>{item.company}</h3><span>{item.period}</span></div><p>{item.role}</p><ul>{item.points.map(point => <li>{point}</li>)}</ul></article>)}</section>
+    <section><h2>Experience</h2>{profile.experience.map(item => <article class="resume-role"><div><h3>{item.company}</h3><span>{item.period}</span></div><p>{item.role}{item.location && <> · {item.location}</>}</p><ul>{item.points.map(point => <li>{point}</li>)}</ul></article>)}</section>
     <section><h2>Skills</h2><dl>{profile.skills.map(skill => <><dt>{skill.label}</dt><dd>{skill.items}</dd></>)}</dl></section>
     <section><h2>Selected projects</h2>{profile.projects.map(project => <article class="resume-project"><h3><a href={project.url}>{project.name} ↗</a></h3><p>{project.description}</p></article>)}</section>
   </section>

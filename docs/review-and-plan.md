@@ -63,6 +63,6 @@ TypeScript/Astro checks passed with zero errors, warnings or hints. Production g
 
 ## Follow-up: editorial polish, profile and résumé
 
-At the author’s request, both 2018 articles were copyedited for grammar and structure while retaining their dates, URLs, stories and opinions. The profile now includes verified experience and public work, with an HTML résumé and a generated one-page PDF. Employment dates, education and numerical achievements are omitted where not verified. Profile and résumé content share `src/data/profile.json`.
+At the author’s request, both 2018 articles were copyedited for grammar and structure while retaining their dates, URLs, stories and opinions. The profile now includes verified experience and public work, with an HTML résumé and a generated one-page PDF. Employment titles, dates, locations and technologies were subsequently updated from the author’s LinkedIn experience screenshot. The April–May 2023 overlap between ShiftCare roles is retained as supplied. Education and numerical achievements remain omitted where not verified. Profile and résumé content share `src/data/profile.json`.
 
 Article entrances, scroll reveals and a reading-progress bar extend the existing motion. Native CSS timelines are feature-detected; pause and reduced-motion controls disable decorative animation. Production browser checks cover scrolling, pause/reduced-motion behaviour, profile-to-résumé navigation and the PDF download.

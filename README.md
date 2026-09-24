@@ -71,6 +71,6 @@ See [the review and implementation plan](docs/review-and-plan.md) for findings a
 
 ## Profile and résumé
 
-Edit `src/data/profile.json` to update the profile and HTML résumé together. Rebuild the downloadable PDF with `uv run --with reportlab --with pypdf scripts/build-resume.py`, then run the site checks and commit the JSON and PDF together. The PDF is checked in so Netlify does not need Python. Employment dates, education, and numerical achievements are intentionally omitted until supplied and verified.
+Edit `src/data/profile.json` to update the profile and HTML résumé together. Rebuild the downloadable PDF with `uv run --with reportlab --with pypdf scripts/build-resume.py`, then run the site checks and commit the JSON and PDF together. The PDF is checked in so Netlify does not need Python. Employment roles and dates follow the supplied LinkedIn experience screenshot, including the April–May 2023 overlap between ShiftCare roles. Education and numerical achievements remain omitted until supplied and verified.
 
 Article pages include entrance motion and a scroll-linked reading bar; archive cards, article photos, and profile cards have progressive scroll reveals where the browser supports CSS animation timelines. All effects respect the existing pause control and OS reduced-motion setting.

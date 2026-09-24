@@ -23,7 +23,7 @@ import profile from '../data/profile.json';
   </section>
   <section class="profile-section wrap" aria-labelledby="experience-title">
     <div class="section-heading"><div><p class="eyebrow">Experience</p><h2 id="experience-title">Building products and teams.</h2></div></div>
-    <div class="experience-list">{profile.experience.map(item => <article><div><p class="eyebrow">{item.period}</p><h3>{item.company}</h3><p>{item.role}</p></div><ul>{item.points.map(point => <li>{point}</li>)}</ul></article>)}</div>
+    <div class="experience-list">{profile.experience.map(item => <article><div><p class="eyebrow">{item.period}</p><h3>{item.company}</h3><p>{item.role}</p>{item.location && <p>{item.location}</p>}</div><ul>{item.points.map(point => <li>{point}</li>)}</ul></article>)}</div>
   </section>
   <section class="profile-section wrap" aria-labelledby="work-title">
     <div class="section-heading"><div><p class="eyebrow">Selected public work</p><h2 id="work-title">Things you can explore.</h2></div></div>
