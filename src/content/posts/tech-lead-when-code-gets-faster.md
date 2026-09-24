@@ -3,8 +3,8 @@ title: "Being a tech lead when writing code gets faster"
 description: "What my implementation work, reviews, and agent workflows are teaching me about leading delivery."
 date: "2026-09-24"
 category: "Leadership"
-cover: "/images/suyog-waterfront.png"
-coverAlt: "Suyog looking across the water from a boardwalk"
+cover: "/images/technical-leadership.webp"
+coverAlt: "Four illustrated teammates planning and assembling a bridge together"
 ---
 
 Looking back through my recent work, I can see two threads running together. I am still implementing features and following changes through to review. I am also reviewing other people’s code and putting more structure around how agents help with development.

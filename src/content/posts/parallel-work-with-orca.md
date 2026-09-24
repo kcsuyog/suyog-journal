@@ -3,8 +3,8 @@ title: "Parallel work with Orca: building my software factory"
 description: "Separate workspaces, clear handoffs, and a review queue I can actually keep up with."
 date: "2026-09-24"
 category: "Engineering"
-cover: "/images/suyog-torii.png"
-coverAlt: "Suyog beneath a sequence of orange torii gates"
+cover: "/images/orca-software-factory.webp"
+coverAlt: "Illustrated parallel conveyor tracks bringing code modules to a shared inspection desk"
 ---
 
 My development workspace has become a collection of different kinds of work. There are investigations, implementation tasks, code reviews, and pull requests that need attention after the initial coding is finished. Some are running through Claude Code, others through Codex. Orca is where I keep those workspaces together.

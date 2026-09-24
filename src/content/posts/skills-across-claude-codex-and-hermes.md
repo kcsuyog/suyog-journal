@@ -3,8 +3,8 @@ title: "Skills that travel: Claude, Codex, and Hermes"
 description: "Reviewing the instructions around my agents, and separating installed workflows from proven habits."
 date: "2026-09-24"
 category: "Engineering"
-cover: "/images/tatos.jpg"
-coverAlt: "Clouds and green hills seen from a terrace at Tatopani"
+cover: "/images/agent-skills.webp"
+coverAlt: "Three illustrated toolkits exchanging reusable instruction tiles"
 ---
 
 I have been looking at the skills around my development tools as part of the workflow itself. There are instructions for orchestration, code review, verification, and finishing a change. My Claude setup includes the software factory; my Hermes collection includes review, simplification, debugging, and skill-authoring workflows. Codex also has a place in my development and PR-maintenance setup.
