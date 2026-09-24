@@ -15,6 +15,6 @@ const minutes = Math.max(1, Math.ceil((post.body ?? '').split(/\s+/).length / 22
     <header class="article-header"><div class="post-meta"><span>{post.data.category}</span><time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time><span>{minutes} min read</span></div><h1>{post.data.title}</h1><p>{post.data.description}</p></header>
     <img class="article-cover" src={post.data.cover} alt={post.data.coverAlt} width="1200" height="650" fetchpriority="high" />
     <div class="prose"><Content /></div>
-    <div class="article-signoff"><img src="/images/suyog.jpg" alt="" width="56" height="56" /><p>Written by Suyog K.C.<br /><a href="/about/">Developer, reader, curious human.</a></p><a href="/#journal">More stories ↗</a></div>
+    <div class="article-signoff"><img src="/images/suyog-torii.png" alt="" width="56" height="56" /><p>Written by Suyog K.C.<br /><a href="/about/">Developer, reader, curious human.</a></p><a href="/#journal">More stories ↗</a></div>
   </article>
 </Layout>
