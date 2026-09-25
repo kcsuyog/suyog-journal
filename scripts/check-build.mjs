@@ -111,9 +111,9 @@ try {
   });
   assert.equal(await page.locator(".post-card:visible").count(), publishedCount);
   await page.getByRole("button", { name: "Books", exact: true }).click();
-  assert.equal(await page.locator(".post-card:visible").count(), 1);
+  assert.equal(await page.locator(".post-card:visible").count(), 2);
   assert.match(
-    await page.locator(".post-card:visible").innerText(),
+    (await page.locator(".post-card:visible").allInnerTexts()).join(" "),
     /Norwegian Wood/,
   );
   await page.getByRole("button", { name: /Everything/ }).click();
