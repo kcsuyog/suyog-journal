@@ -7,7 +7,7 @@ cover: "/images/leadership-and-self-deception.svg"
 coverAlt: "One figure stepping out of an open box toward another figure"
 ---
 
-I picked up *Leadership and Self-Deception* by the Arbinger Institute expecting a management book. It turned out to be a book about how I see people, and how easily I stop seeing them.
+I first heard about *Leadership and Self-Deception* by the Arbinger Institute on a podcast, and picked it up expecting a management book. It turned out to be a book about how I see people, and how easily I stop seeing them.
 
 It is written as a story. Tom, a newly hired manager, spends a day with two senior leaders who walk him through one idea from different angles. The format is simple, almost too simple at first. By the end, I found it had described several conversations from my own working life more accurately than I would have liked.
 
