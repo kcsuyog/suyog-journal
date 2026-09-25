@@ -1,34 +1,36 @@
 {
   "name": "Suyog KC",
-  "headline": "Full-stack Developer & Technical Lead",
+  "headline": "AI-first Team Lead & Tech Lead",
   "email": "suyogkrazz@gmail.com",
   "website": "https://suyogkc.netlify.app",
   "github": "https://github.com/kcsuyog",
   "linkedin": "https://www.linkedin.com/in/suyogkc/",
-  "summary": "Technical lead and full-stack developer with software engineering experience since 2014. Progressed from co-founding PineSoft to senior engineering and technical leadership at ShiftCare, building web and mobile products and guiding reviewable delivery.",
+  "summary": "AI-first team lead and tech lead with more than ten years of engineering experience, eight at ShiftCare, a care-management platform. I lead planning, review, and delivery, and build AI-assisted workflows that keep work well-scoped and verified.",
   "skills": [
     {
+      "label": "Leadership",
+      "items": "Technical planning, feature decomposition, code review, feature-flagged releases"
+    },
+    {
+      "label": "AI engineering",
+      "items": "Claude Code, Codex, agent orchestration, MCP, agent skills, AI-assisted code review and CI triage"
+    },
+    {
       "label": "Engineering",
-      "items": "Ruby on Rails, JavaScript, TypeScript, Vue.js, React, React Native, Node.js, PHP, Laravel, CodeIgniter, Angular, Ionic, Cordova, Astro"
-    },
-    {
-      "label": "Delivery & leadership",
-      "items": "Technical planning, code review, feature decomposition, behaviour testing, cross-functional collaboration"
-    },
-    {
-      "label": "AI-assisted development",
-      "items": "Orca worktrees, Claude Code, Codex, Hermes skills, agent orchestration, independent review"
+      "items": "Ruby on Rails, TypeScript, Vue.js, React, React Native, Node.js, PostgreSQL, Sidekiq, AWS, Stripe, PHP, Laravel"
     }
   ],
   "experience": [
     {
       "company": "ShiftCare",
-      "role": "Technical Lead",
+      "role": "AI-first Team Lead & Tech Lead",
       "period": "Apr 2023 – Present",
       "location": "Sydney, New South Wales, Australia · Hybrid",
       "points": [
-        "Guide technical planning, code review, and delivery across application features and APIs.",
-        "Structure agent-assisted work with explicit ownership, reviewable scope, and verification."
+        "Lead planning, code review, and delivery for product features and APIs, splitting large work into independently verifiable changes.",
+        "Built Recent Releases, an in-app release catalog and beta program with eligibility rules, user feedback, and an admin inbox.",
+        "Built BECS Direct Debit payments through Stripe and Recurly, and moved background work from Delayed Job to Sidekiq and SQS.",
+        "Introduced AI-assisted engineering: agent-driven CI failure triage, automated migration review, and an agent software factory that turns tickets into reviewed draft PRs."
       ]
     },
     {
@@ -37,7 +39,7 @@
       "period": "Nov 2018 – May 2023",
       "location": "Greater Sydney Area",
       "points": [
-        "Built complex, dynamic user interfaces using Vue.js; worked with Ruby on Rails, React Native, and Node.js."
+        "Built core scheduling, timesheet, payroll, invoicing, and notification features across Vue.js, Ruby on Rails, and React Native."
       ]
     },
     {
@@ -46,7 +48,7 @@
       "period": "May 2017 – Oct 2018",
       "location": "",
       "points": [
-        "Translated interface designs into Vue.js and React.js code; worked with Ruby on Rails and React Native."
+        "Built product interfaces in Vue.js and React, with Ruby on Rails APIs and React Native apps."
       ]
     },
     {
@@ -55,7 +57,7 @@
       "period": "May 2016 – Apr 2017",
       "location": "Kathmandu, Nepal",
       "points": [
-        "Developed Laravel backend services for multi-platform integrations; worked with Angular, PHP, and Cordova."
+        "Developed Laravel backend services for multi-platform integrations, with Angular and Cordova clients."
       ]
     },
     {
@@ -64,20 +66,15 @@
       "period": "Jan 2014 – Apr 2016",
       "location": "Pokhara, Nepal",
       "points": [
-        "Co-founded PineSoft and grew its software consulting work using PHP, CodeIgniter, Angular, and Ionic."
+        "Co-founded a software consultancy and delivered client web and mobile projects with PHP, CodeIgniter, Angular, and Ionic."
       ]
     }
   ],
   "projects": [
     {
-      "name": "Suyog’s journal",
-      "url": "https://github.com/kcsuyog/suyog-journal",
-      "description": "Personal publication built with Astro and Markdown, preserving existing article URLs and adding accessible motion, local search, RSS, and browser checks."
-    },
-    {
       "name": "ShiftCare AI Skills",
       "url": "https://github.com/shiftcare/ai-skills/pull/20",
-      "description": "Contributed public documentation covering discoverability, access and permissions, and security reporting for AI-agent skills."
+      "description": "Public documentation for AI-agent skills covering discoverability, access and permissions, and security reporting."
     }
   ]
 }
