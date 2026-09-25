@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="t"><title id="t">A care note passing through an AI check and landing on a reviewer's desk as a signal</title>
+<rect width="1200" height="675" fill="#f4efe6"/>
+<rect x="120" y="170" width="300" height="340" rx="18" fill="#fff" stroke="#2f3a4a" stroke-width="6"/>
+<g stroke="#9aa5b1" stroke-width="10" stroke-linecap="round"><path d="M165 240h210M165 290h180M165 340h210M165 440h150"/></g>
+<path d="M165 390h200" stroke="#e07a5f" stroke-width="14" stroke-linecap="round"/>
+<path d="M450 340h110" stroke="#2f3a4a" stroke-width="6" stroke-dasharray="14 12"/><path d="M555 322l26 18-26 18z" fill="#2f3a4a"/>
+<circle cx="680" cy="340" r="95" fill="#81b29a" stroke="#2f3a4a" stroke-width="6"/>
+<path d="M640 340l28 28 54-58" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M790 340h110" stroke="#2f3a4a" stroke-width="6" stroke-dasharray="14 12"/><path d="M895 322l26 18-26 18z" fill="#2f3a4a"/>
+<rect x="940" y="250" width="160" height="180" rx="18" fill="#f2cc8f" stroke="#2f3a4a" stroke-width="6"/>
+<circle cx="1020" cy="310" r="26" fill="#e07a5f"/><path d="M975 375h90M975 405h60" stroke="#2f3a4a" stroke-width="10" stroke-linecap="round"/>
+</svg>
