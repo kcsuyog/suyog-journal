@@ -27,10 +27,10 @@
       "period": "Apr 2023 – Present",
       "location": "Sydney, New South Wales, Australia · Hybrid",
       "points": [
-        "Lead planning, code review, and delivery, splitting large features into independently verifiable changes.",
-        "Helped take the platform global, adapting SMS, public holidays, locale, and timezones for new markets.",
-        "Built Recent Releases, an in-app release catalog and beta program, and BECS Direct Debit payments through Stripe and Recurly.",
-        "Introduced AI-assisted engineering: agent-driven CI failure triage, automated migration review, and an agent software factory that turns tickets into reviewed draft PRs."
+        "Direct and build much of the product roadmap end to end, from technical planning and architecture to code review and release.",
+        "Helped take the platform from Australia to the UK, US and Canada, adapting it for each new market.",
+        "Own delivery across web, mobile, payments, and APIs, splitting large work into independently verifiable changes.",
+        "Lead the shift to AI-first engineering, bringing agents into planning, building, review, and CI with clear ownership and verification."
       ]
     },
     {
@@ -39,7 +39,7 @@
       "period": "Nov 2018 – May 2023",
       "location": "Greater Sydney Area",
       "points": [
-        "Built core NDIS and aged care workflows as an early engineer: scheduling, timesheets, payroll, invoicing, and notifications across Vue.js, Ruby on Rails, and React Native."
+        "As an early engineer, built the core NDIS and aged care platform across Vue.js, Ruby on Rails, and React Native."
       ]
     },
     {
