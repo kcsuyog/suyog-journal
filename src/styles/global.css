@@ -1235,3 +1235,49 @@ html[data-motion="off"] .reading-progress { display: none; }
   from { opacity: 1; transform: translate(0, 0) scale(1) rotate(0); }
   to { opacity: 0; transform: translate(var(--dx, 0), var(--dy, 24px)) scale(.2) rotate(270deg); }
 }
+
+/* Scroll-driven homepage: the hero scatters as you scroll, the journal assembles as it arrives.
+   Individual translate/rotate/scale compose with existing transforms. Longhands for the minifier. */
+@supports (animation-timeline: scroll()) {
+  .hero-copy > *, .collage > *, .hero-bottom {
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(root);
+    animation-range: 0 90vh;
+  }
+  .hello, .intro, .hero-bottom { animation-name: drift-up; }
+  .hero-copy .pill-link { animation-name: drift-left; }
+  .hero h1 {
+    animation-name: shimmer, hero-title-out;
+    animation-duration: 6s, auto;
+    animation-iteration-count: infinite, 1;
+    animation-timing-function: ease-in-out, linear;
+    animation-timeline: auto, scroll(root);
+    animation-range: normal, 0 90vh;
+  }
+  .hero h1 .period { animation-name: bounce, period-out; animation-duration: 1.4s, auto; animation-iteration-count: infinite, 1; animation-timeline: auto, scroll(root); animation-range: normal, 0 90vh; }
+  .orbit { animation-name: orbit-out; }
+  .photo-landscape { animation-name: photo-fling-right; }
+  .photo-book { animation-name: photo-fling-left; }
+  .sticker { animation-name: float, sticker-roll; animation-duration: 5s, auto; animation-iteration-count: infinite, 1; animation-timing-function: ease-in-out, linear; animation-timeline: auto, scroll(root); animation-range: normal, 0 90vh; }
+  .spark-one { animation-name: spin, spark-zoom; animation-duration: 35s, auto; animation-iteration-count: infinite, 1; animation-timeline: auto, scroll(root); animation-range: normal, 0 90vh; }
+  .spark-two, .handwritten { animation-name: drift-up; }
+}
+@supports (animation-timeline: view()) {
+  .section-heading h2 { animation-name: heading-in; animation-timing-function: linear; animation-fill-mode: both; animation-timeline: view(); animation-range: entry 0% cover 35%; }
+  .post-card:nth-child(odd) { animation-name: card-in-left; }
+  .post-card:nth-child(even) { animation-name: card-in-right; }
+}
+@keyframes drift-up { to { translate: 0 -120px; opacity: 0; } }
+@keyframes drift-left { to { translate: -40vw 0; rotate: -20deg; opacity: 0; } }
+@keyframes hero-title-out { to { translate: -12vw -60px; rotate: -6deg; scale: .85; letter-spacing: .08em; opacity: .1; } }
+@keyframes period-out { to { scale: 6; rotate: 180deg; opacity: 0; } }
+@keyframes orbit-out { to { scale: 2.6; opacity: 0; } }
+@keyframes photo-fling-right { to { translate: 30vw -140px; rotate: 28deg; scale: .75; } }
+@keyframes photo-fling-left { to { translate: -45vw 160px; rotate: -45deg; scale: 1.25; } }
+@keyframes sticker-roll { to { translate: 55vw 120px; rotate: 540deg; } }
+@keyframes spark-zoom { to { scale: 4; rotate: 360deg; opacity: 0; } }
+@keyframes heading-in { from { translate: 0 60px; scale: .8; letter-spacing: .2em; opacity: 0; } to { translate: 0 0; scale: 1; opacity: 1; } }
+@keyframes card-in-left { from { translate: -18vw 60px; rotate: -8deg; opacity: 0; } to { translate: 0 0; rotate: 0deg; opacity: 1; } }
+@keyframes card-in-right { from { translate: 18vw 60px; rotate: 8deg; opacity: 0; } to { translate: 0 0; rotate: 0deg; opacity: 1; } }
+body { overflow-x: clip; }

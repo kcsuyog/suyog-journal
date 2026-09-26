@@ -53,7 +53,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
       preference.addEventListener('change', sync);
       sync();
 
-      // Cursor sparkle trail and click bursts; skipped whenever motion is paused or reduced.
+      // Cursor sparkle trail; skipped whenever motion is paused or reduced.
       const colors = ['#8674b9', '#e7f075', '#f28fad', '#6fc3b2'];
       const still = () => document.documentElement.dataset.motion === 'off' || preference.matches;
       const sparkle = (x: number, y: number, dx: number, dy: number, size: number) => {
@@ -70,14 +70,6 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         if (event.pointerType !== 'mouse' || still() || event.timeStamp - last < 45) return;
         last = event.timeStamp;
         sparkle(event.clientX, event.clientY, (Math.random() - 0.5) * 30, 20 + Math.random() * 20, 10 + Math.random() * 8);
-      });
-      addEventListener('pointerdown', (event) => {
-        if (still()) return;
-        for (let i = 0; i < 12; i++) {
-          const angle = (i / 12) * Math.PI * 2;
-          const distance = 50 + Math.random() * 40;
-          sparkle(event.clientX, event.clientY, Math.cos(angle) * distance, Math.sin(angle) * distance, 14 + Math.random() * 10);
-        }
       });
     </script>
   </body>
