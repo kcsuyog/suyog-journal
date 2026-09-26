@@ -1280,4 +1280,4 @@ html[data-motion="off"] .reading-progress { display: none; }
 @keyframes heading-in { from { translate: 0 60px; scale: .8; letter-spacing: .2em; opacity: 0; } to { translate: 0 0; scale: 1; opacity: 1; } }
 @keyframes card-in-left { from { translate: -18vw 60px; rotate: -8deg; opacity: 0; } to { translate: 0 0; rotate: 0deg; opacity: 1; } }
 @keyframes card-in-right { from { translate: 18vw 60px; rotate: 8deg; opacity: 0; } to { translate: 0 0; rotate: 0deg; opacity: 1; } }
-body { overflow-x: clip; }
+main { overflow-x: clip; }
