@@ -1199,3 +1199,39 @@ html[data-motion="off"] .reading-progress { display: none; }
   .resume-heading { animation: none; }
   .resume section, .resume-role, .resume-project { break-inside: avoid; }
 }
+
+/* Playful extras. Covered by the global motion-off and reduced-motion rules above. */
+.hero h1 {
+  background: linear-gradient(100deg, var(--ink) 0 40%, #8674b9 50%, var(--ink) 60% 100%) 0 0 / 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s ease-in-out infinite;
+}
+.hero h1 .period { display: inline-block; animation: bounce 1.4s cubic-bezier(.3, 1.8, .5, 1) infinite; }
+.wordmark:hover .brand-dot, .wordmark:hover span { display: inline-block; animation: spin .6s linear infinite; }
+.post-card:hover { animation: jelly .7s both; }
+.pill-link:hover { animation: wiggle .4s ease-in-out 2; }
+.sparkle {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  color: var(--c, #8674b9);
+  font-size: var(--s, 14px);
+  translate: -50% -50%;
+  animation: sparkle .8s ease-out forwards;
+}
+@keyframes shimmer { 50% { background-position: 100% 0; } }
+@keyframes bounce { 50% { transform: translateY(-.25em) scale(1.2); } }
+@keyframes jelly {
+  30% { transform: scale(1.04, .96); }
+  45% { transform: scale(.97, 1.03); }
+  60% { transform: scale(1.02, .98) rotate(-.6deg); }
+  80% { transform: scale(.99, 1.01) rotate(.3deg); }
+  100% { transform: translateY(-6px); }
+}
+@keyframes wiggle { 25% { rotate: -4deg; } 75% { rotate: 4deg; } }
+@keyframes sparkle {
+  from { opacity: 1; transform: translate(0, 0) scale(1) rotate(0); }
+  to { opacity: 0; transform: translate(var(--dx, 0), var(--dy, 24px)) scale(.2) rotate(270deg); }
+}
