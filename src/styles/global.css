@@ -1281,3 +1281,13 @@ html[data-motion="off"] .reading-progress { display: none; }
 @keyframes card-in-left { from { translate: -18vw 60px; rotate: -8deg; opacity: 0; } to { translate: 0 0; rotate: 0deg; opacity: 1; } }
 @keyframes card-in-right { from { translate: 18vw 60px; rotate: 8deg; opacity: 0; } to { translate: 0 0; rotate: 0deg; opacity: 1; } }
 main { overflow-x: clip; }
+.resume-highlights { list-style: none; padding: 0 !important; margin: 0 0 10px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+.resume-highlights li { background: var(--lavender); border-radius: 18px; padding: 20px 22px; display: grid; gap: 4px; line-height: 1.4; transition: transform .3s cubic-bezier(.3, 1.6, .5, 1); }
+.resume-highlights li:hover { transform: translateY(-6px) rotate(-1.5deg); }
+.resume-highlights strong { font-family: 'Fraunces Variable', serif; font-weight: 500; font-size: 34px; }
+.resume-highlights span { font-size: 14px; color: var(--muted); }
+.resume-highlights li:nth-child(2) { background: var(--acid); }
+@supports (animation-timeline: view()) {
+  .resume-role { animation-name: card-in-left; animation-timing-function: linear; animation-fill-mode: both; animation-timeline: view(); animation-range: entry 0% entry 70%; }
+}
+@media print { .resume-highlights li { background: none; border: 1px solid var(--line); } .resume-role { animation: none; } }

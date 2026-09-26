@@ -5,7 +5,7 @@
   "website": "https://suyogkc.netlify.app",
   "github": "https://github.com/kcsuyog",
   "linkedin": "https://www.linkedin.com/in/suyogkc/",
-  "summary": "AI-first team lead and tech lead with more than ten years of engineering experience, eight at ShiftCare, a care-management platform. I lead planning, review, and delivery, and build AI-assisted workflows that keep work well-scoped and verified.",
+  "summary": "AI-first team lead and tech lead. I joined ShiftCare in 2018 as an early engineer and helped grow it from a Sydney startup into an NDIS and aged care software powerhouse, now serving providers in the UK, the US and Canada. I build AI-assisted workflows that keep delivery well-scoped and verified.",
   "skills": [
     {
       "label": "Leadership",
@@ -27,9 +27,9 @@
       "period": "Apr 2023 – Present",
       "location": "Sydney, New South Wales, Australia · Hybrid",
       "points": [
-        "Lead planning, code review, and delivery for product features and APIs, splitting large work into independently verifiable changes.",
-        "Built Recent Releases, an in-app release catalog and beta program with eligibility rules, user feedback, and an admin inbox.",
-        "Built BECS Direct Debit payments through Stripe and Recurly, and moved background work from Delayed Job to Sidekiq and SQS.",
+        "Lead planning, code review, and delivery, splitting large features into independently verifiable changes.",
+        "Helped take the platform global, adapting SMS, public holidays, locale, and timezones for new markets.",
+        "Built Recent Releases, an in-app release catalog and beta program, and BECS Direct Debit payments through Stripe and Recurly.",
         "Introduced AI-assisted engineering: agent-driven CI failure triage, automated migration review, and an agent software factory that turns tickets into reviewed draft PRs."
       ]
     },
@@ -39,7 +39,7 @@
       "period": "Nov 2018 – May 2023",
       "location": "Greater Sydney Area",
       "points": [
-        "Built core scheduling, timesheet, payroll, invoicing, and notification features across Vue.js, Ruby on Rails, and React Native."
+        "Built core NDIS and aged care workflows as an early engineer: scheduling, timesheets, payroll, invoicing, and notifications across Vue.js, Ruby on Rails, and React Native."
       ]
     },
     {
@@ -75,6 +75,20 @@
       "name": "ShiftCare AI Skills",
       "url": "https://github.com/shiftcare/ai-skills/pull/20",
       "description": "Public documentation for AI-agent skills covering discoverability, access and permissions, and security reporting."
+    }
+  ],
+  "highlights": [
+    {
+      "value": "8 years",
+      "label": "Startup to scale-up at ShiftCare"
+    },
+    {
+      "value": "4 markets",
+      "label": "Australia, UK, US and Canada"
+    },
+    {
+      "value": "4,000+",
+      "label": "Commits to the core platform"
     }
   ]
 }

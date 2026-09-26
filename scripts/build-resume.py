@@ -42,6 +42,7 @@ story.append(para(' | '.join([
     link(profile['github'], 'github.com/kcsuyog'),
 ]) + '<br/>' + link(profile['linkedin'], 'linkedin.com/in/suyogkc'), 'contact'))
 story.append(para(plain(profile['summary'])))
+story.append(para('  |  '.join('<b>' + plain(h['value']) + '</b> ' + plain(h['label']) for h in profile['highlights'])))
 story.append(para('Experience', 'section'))
 for item in profile['experience']:
     block = [para(plain(item['company']) + ' <font size="9" color="#535365"> / ' + plain(item['period']) + '</font>', 'role'), para(plain(item['role'] + (' | ' + item['location'] if item['location'] else '')), 'meta')]
