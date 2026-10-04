@@ -1232,7 +1232,7 @@ html[data-motion="off"] .reading-progress { display: none; }
 .hero h1 .period { display: inline-block; animation: bounce 1.4s cubic-bezier(.3, 1.8, .5, 1) infinite; }
 .wordmark:hover .brand-dot, .wordmark:hover span { display: inline-block; animation: spin .6s linear infinite; }
 .post-card:hover { animation: jelly .7s both; }
-.pill-link:hover { animation: wiggle .4s ease-in-out 2; }
+.pill-link:hover span { animation: wiggle .4s ease-in-out 2; }
 .sparkle {
   position: fixed;
   z-index: 50;

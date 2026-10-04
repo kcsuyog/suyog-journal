@@ -106,6 +106,22 @@ try {
   await page.waitForSelector("#journal-tools:not([hidden])");
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(1100);
+  const explore = page.getByRole('link', { name: 'Explore the journal' });
+  const exploreTimeline = await explore.evaluate(el => getComputedStyle(el).animationTimeline);
+  await explore.hover();
+  assert.equal(
+    await explore.evaluate(el => getComputedStyle(el).animationTimeline),
+    exploreTimeline,
+    'Hover must preserve the Explore link scroll timeline',
+  );
+  assert(await explore.evaluate(el => {
+    const rect = el.getBoundingClientRect();
+    return Number(getComputedStyle(el).opacity) > .95 && rect.left >= 0 && rect.right <= innerWidth;
+  }), 'Explore link must remain visible on hover');
+  await explore.click();
+  await page.waitForURL('**/#journal');
+  await page.goto('http://127.0.0.1:4329');
+  await page.waitForTimeout(1100);
   mkdirSync("test-results", { recursive: true });
   await page.screenshot({
     path: "test-results/home-desktop.png",
