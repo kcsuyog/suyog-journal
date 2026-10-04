@@ -667,6 +667,27 @@ h1 {
   width: 100%;
   height: 440px;
 }
+.profile-photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+.profile-photos figure {
+  margin: 0;
+}
+.profile-photos img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.profile-photos figcaption {
+  padding-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+@media (max-width: 600px) {
+  .profile-photos { grid-template-columns: 1fr; }
+}
 .about-page figcaption {
   text-align: center;
   padding: 20px 0 5px;

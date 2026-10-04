@@ -62,6 +62,7 @@ try {
     "retreat-to-tatopani", "review-of-norwegian-wood",
     "parallel-work-with-orca", "skills-across-claude-codex-and-hermes",
     "tech-lead-when-code-gets-faster",
+    "openrouter-opencode-hermes-claude-codex-in-orca",
   ];
   const feed = readFileSync("dist/rss.xml", "utf8");
   const publishedCount = (feed.match(/<item>/g) ?? []).length;
@@ -149,6 +150,7 @@ try {
       "/parallel-work-with-orca/",
       "/skills-across-claude-codex-and-hermes/",
       "/tech-lead-when-code-gets-faster/",
+      "/openrouter-opencode-hermes-claude-codex-in-orca/",
       "/about/",
       "/resume/",
       "/contact/",

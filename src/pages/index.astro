@@ -4,7 +4,7 @@ import { publishedPosts, formatDate } from '../lib/posts';
 const posts = await publishedPosts();
 const categories = [...new Set(posts.map(post => post.data.category))];
 ---
-<Layout>
+<Layout image="/images/suyog-autumn.webp">
   <section class="hero wrap">
     <div class="hero-copy">
       <p class="hello"><span></span> Hey, I’m Suyog.</p>
@@ -15,9 +15,9 @@ const categories = [...new Set(posts.map(post => post.data.category))];
     <div class="collage" aria-label="Photographs from Suyog’s journal">
       <div class="orbit" aria-hidden="true"></div>
       <span class="spark spark-one" aria-hidden="true">✳</span>
-      <a class="photo photo-landscape" href="/retreat-to-tatopani/">
-        <img src="/images/tatos.jpg" width="560" height="420" alt="Green hills at Tatopani, Nepal" fetchpriority="high" />
-        <span>A little further from the everyday.</span>
+      <a class="photo photo-landscape" href="/about/">
+        <img src="/images/suyog-autumn.webp" width="1112" height="1368" alt="Suyog and a companion beneath colourful autumn leaves" fetchpriority="high" />
+        <span>A little colour along the way.</span>
       </a>
       <a class="photo photo-book" href="/review-of-norwegian-wood/">
         <img src="/images/wood.jpg" width="220" height="250" alt="Norwegian Wood — open the book review" />
@@ -46,7 +46,7 @@ const categories = [...new Set(posts.map(post => post.data.category))];
     <p id="no-results" hidden>No stories found. Try another word or choose Everything.</p>
     <p id="result-status" class="sr-only" aria-live="polite"></p>
   </section>
-  <section class="about-strip wrap"><img src="/images/suyog-torii.png" width="120" height="120" alt="Suyog K.C." loading="lazy" /><div><p class="eyebrow">The person behind the pixels</p><h2>A developer. A reader.<br />A work in progress.</h2><p>Good software, a good book, a change of scenery.<br />There’s always something to be curious about.</p></div><a class="pill-link" href="/about/">A little about me <span aria-hidden="true">↗</span></a></section>
+  <section class="about-strip wrap"><img src="/images/suyog-avatar.webp" width="120" height="120" alt="Suyog K.C." loading="lazy" /><div><p class="eyebrow">The person behind the pixels</p><h2>A developer. A reader.<br />A work in progress.</h2><p>Good software, a good book, a change of scenery.<br />There’s always something to be curious about.</p></div><a class="pill-link" href="/about/">A little about me <span aria-hidden="true">↗</span></a></section>
 </Layout>
 <script>
   const controls = document.querySelector<HTMLElement>('#journal-tools')!;

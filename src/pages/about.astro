@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import profile from '../data/profile.json';
 ---
-<Layout title="Suyog KC — AI-first Team Lead & Tech Lead" description={profile.summary} image="/images/suyog-waterfront.png">
+<Layout title="Suyog KC — AI-first Team Lead & Tech Lead" description={profile.summary} image="/images/suyog-mountains.webp">
   <section class="about-page wrap">
     <div>
       <p class="eyebrow">Developer. Technical lead. Curious human.</p>
@@ -11,7 +11,14 @@ import profile from '../data/profile.json';
       <div class="prose"><p>{profile.summary}</p><p>Outside work, I make room for books, getting outside, and a change of perspective. This journal holds a little of both worlds.</p></div>
       <div class="profile-actions"><a class="pill-link" href="/resume/">View résumé <span aria-hidden="true">↗</span></a><a class="text-link" href="/suyog-kc-resume.pdf" download>Download PDF</a></div>
     </div>
-    <figure><img src="/images/suyog-waterfront.png" alt="Suyog by the waterfront" width="480" height="580" /><figcaption>A little space to think.</figcaption></figure>
+    <figure><img src="/images/suyog-mountains.webp" alt="Suyog in a green jacket with mountains in the background" width="1020" height="1330" /><figcaption>A change of perspective in the mountains.</figcaption></figure>
+  </section>
+  <section class="profile-section wrap" aria-labelledby="photos-title">
+    <div class="section-heading"><div><p class="eyebrow">Outside the everyday</p><h2 id="photos-title">A few moments along the way.</h2></div></div>
+    <div class="profile-photos">
+      <figure><img src="/images/suyog-autumn.webp" alt="Suyog and a companion beneath colourful autumn leaves" width="1112" height="1368" loading="lazy" /><figcaption>A little colour along the way.</figcaption></figure>
+      <figure><img src="/images/suyog-mountain-light.webp" alt="Suyog sitting on rocks overlooking mountains beneath a pink sky" width="980" height="1408" loading="lazy" /><figcaption>A quiet moment above the everyday.</figcaption></figure>
+    </div>
   </section>
   <section class="profile-section wrap" aria-labelledby="approach-title">
     <div class="section-heading"><div><p class="eyebrow">How I work</p><h2 id="approach-title">Clear intent. Careful execution.</h2></div></div>
