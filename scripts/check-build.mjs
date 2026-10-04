@@ -63,6 +63,7 @@ try {
     "parallel-work-with-orca", "skills-across-claude-codex-and-hermes",
     "tech-lead-when-code-gets-faster",
     "openrouter-opencode-hermes-claude-codex-in-orca",
+    "first-long-drive-to-the-gold-coast",
   ];
   const feed = readFileSync("dist/rss.xml", "utf8");
   const publishedCount = (feed.match(/<item>/g) ?? []).length;
@@ -151,6 +152,7 @@ try {
       "/skills-across-claude-codex-and-hermes/",
       "/tech-lead-when-code-gets-faster/",
       "/openrouter-opencode-hermes-claude-codex-in-orca/",
+      "/first-long-drive-to-the-gold-coast/",
       "/about/",
       "/resume/",
       "/contact/",
