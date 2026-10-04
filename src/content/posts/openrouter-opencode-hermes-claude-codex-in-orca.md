@@ -1,104 +1,75 @@
 ---
-title: "OpenRouter, OpenCode, Hermes, Claude, and Codex in one Orca workspace"
-description: "How I bring different agents into Orca, use OpenRouter through OpenCode and Hermes, and keep parallel work reviewable."
+title: "My personal brain and software factory: Hermes, Claude Code, Codex, and OpenCode"
+description: "Hermes for personal thinking, Claude Code and Codex checking each other's technical work, and OpenCode through OpenRouter when I hit usage limits."
 date: "2026-10-04"
 category: "Engineering"
 cover: "/images/orca-software-factory.webp"
 coverAlt: "Orca showing parallel workspaces, an agent conversation, and pull request review checks"
 ---
 
-My development setup now brings OpenCode and Hermes into the same Orca environment as Claude Code and Codex. OpenRouter gives me another way to choose models through OpenCode and Hermes, while Orca gives the work somewhere to live.
+I use several agents around Orca, but each has a different place in my workflow. Hermes is my personal brain. My technical work starts between Claude Code and Codex, with the two checking each other's work through my software factory. OpenCode is mostly the fallback I turn to when I run out of limits.
 
-What interests me is having several useful approaches available at the same time. I can leave an investigation running, work on a bounded implementation, and ask another agent to review a finished change. The challenge is keeping each session's purpose clear enough that I can still understand the result.
+OpenRouter gives me model access through OpenCode and Hermes. Orca is where I keep the technical workspaces and sessions together. The useful part of this setup is knowing which tool I want to reach for, and what I expect it to bring back.
 
-This builds on [my earlier post about parallel work with Orca](/parallel-work-with-orca/). The worktree boundaries still matter. Adding more agents makes those boundaries more valuable.
+## Hermes is my personal brain
 
-## The workspace, the agent, and the model
+The role I give Hermes is personal thinking and context. It is where I turn when I want help making sense of what is on my mind, before that becomes a specific engineering task.
 
-There are three choices in this setup: where the work happens, which agent runs it, and which model that agent uses.
+That is a different responsibility from implementing a change or checking a pull request. In my setup, the technical implementation and cross-review loop belongs mainly to Claude Code and Codex.
 
-Orca is where I organise the workspaces and terminals. OpenCode, Hermes, Claude Code, and Codex are the agents I bring into that environment. OpenRouter supplies model access for the OpenCode and Hermes sessions configured to use it.
+I like having room for thinking before I enter that loop. A thought does not need to become a coding task immediately. When it does become one, it needs a clear problem, enough context, and an outcome I can check.
 
-OpenCode supports OpenRouter as a provider. Its terminal workflow lets me connect an API key and choose a model using `/connect` and `/models`. [OpenRouter's OpenCode guide](https://openrouter.ai/docs/cookbook/coding-agents/opencode-integration) documents that setup.
+## Claude Code and Codex do the technical work
 
-Hermes also supports OpenRouter. Its documentation describes configuring `OPENROUTER_API_KEY` in `~/.hermes/.env` and choosing the provider and model interactively with `hermes model`. [Hermes provider documentation](https://hermes-agent.nousresearch.com/docs/integrations/providers) covers those options.
+I start my technical work between Claude Code and Codex. I do not assign implementation permanently to one and review permanently to the other. The useful pattern is that whichever agent does the work, the other can challenge it.
 
-Choosing a Claude model through OpenRouter is a different configuration from opening a Claude Code session. In this workflow, Claude Code and Codex keep their own configured authentication; connecting OpenRouter in OpenCode or Hermes does not change those other sessions.
+In the software factory, that means moving from a bounded problem to an implementation, giving the change to the other agent for verification, and repairing concrete findings before bringing it back for review.
 
-## Connecting OpenCode and Hermes
+A Claude Code implementation can go to Codex for a fresh look. A Codex implementation can go to Claude Code. I want the reviewer to inspect the actual change and expected behaviour, rather than simply agree with the implementer's explanation.
 
-With OpenCode already installed, I open a terminal in the intended worktree and start it:
+The questions I care about are practical:
 
-```sh
-opencode
-```
+- Does the change solve the original problem?
+- Did it reuse the relevant code and follow the repository's conventions?
+- What happens on failure paths and edge cases?
+- Do the checks demonstrate the behaviour being claimed?
 
-Inside OpenCode, the setup is:
+Two agents agreeing does not settle those questions. I still need the diff, the checks, and enough evidence to judge the result myself.
 
-```text
-/connect
-```
+This is the workflow I described in [my post about building a software factory with Orca](/parallel-work-with-orca/). The review loop matters as much as the initial implementation.
 
-I select OpenRouter and enter the key when prompted, then choose a model:
+## OpenCode is my fallback when I hit limits
 
-```text
-/models
-```
+When I run out of usage limits, I mostly turn to OpenCode through OpenRouter. The models I mostly use there are DeepSeek 4.2 Flash and GLM 5.3 Flash.
 
-These are OpenCode commands, rather than shell commands. The [OpenCode provider documentation](https://opencode.ai/docs/providers) explains provider configuration in more detail.
+I am not much of a fan of those models for complex coding work. In my experience, they are mostly useful for small, bounded changes. I am more comfortable giving them a focused edit with clear acceptance criteria than handing them a complicated problem that needs reasoning across a large system.
 
-For Hermes, I put the OpenRouter key in its local environment file:
+That is my assessment from using them, rather than a benchmark or a claim about every task they can handle. It affects the scope I give them. A fallback can keep a small piece of work moving without becoming my first choice for the hardest parts of a project.
 
-```dotenv
-# ~/.hermes/.env — local configuration, outside the repository
-OPENROUTER_API_KEY=your-openrouter-key
-```
+When a task is complex, I would rather keep it in the Claude Code and Codex workflow once capacity is available. Running into a limit is a reason to reconsider the next task, not to assume every model is interchangeable.
 
-Then I use its interactive selector:
+## OpenRouter connects the model choice
 
-```sh
-hermes model
-```
+OpenRouter sits underneath the OpenCode and Hermes sessions configured to use it. It gives me another place to choose models while keeping the agent's workflow separate from that choice.
 
-I choose OpenRouter and the model I want for that session. I keep the real key out of committed files and handoff notes. The commands above are a setup outline; the actual model choice belongs to the task and the installed tool's available options.
+For an installed OpenCode terminal session, the connection flow uses `/connect`: choose OpenRouter and enter the API key when prompted. Then `/models` opens the model selection. These are commands inside OpenCode. [OpenRouter's OpenCode guide](https://openrouter.ai/docs/cookbook/coding-agents/opencode-integration) documents the setup.
 
-## Running together needs separate ownership
+Hermes supports an OpenRouter key in its local `~/.hermes/.env` file and an interactive provider and model selector through `hermes model`. [The Hermes provider documentation](https://hermes-agent.nousresearch.com/docs/integrations/providers) covers those options. Real credentials stay outside the repository.
 
-Having four agents available does not mean giving all four permission to edit the same checkout. Each implementation needs an owner and a worktree. A review needs an exact branch or commit to inspect.
+Those connections do not change how I authenticate my separate Claude Code and Codex sessions. The agent, the model, and the workspace each have their own role.
 
-Here is an example of how I would divide a batch of work. These roles are task assignments, rather than claims about which agent is universally best:
+## Orca keeps the technical sessions together
 
-| Session | Assignment | Expected result |
-| --- | --- | --- |
-| Claude Code | Trace an unfamiliar behaviour | Relevant code paths and a bounded implementation plan |
-| Codex | Implement the agreed change in its worktree | A diff with verification evidence |
-| OpenCode via OpenRouter | Work on an independent task in another worktree | A separate change ready for review |
-| Hermes via OpenRouter | Review a specified commit without editing it | Concrete findings and the checks still needed |
+Having the tools available at the same time is useful when each session has a clear responsibility. Here is how I think about their places in my workflow:
 
-The sessions can overlap when their work is independent. A review of an implementation starts once there is a stable change to review. If the OpenCode task depends on an interface Codex is still changing, I need to settle that interface before pretending both tasks can proceed freely.
+| Tool | My main use |
+| --- | --- |
+| Hermes | My personal brain: thinking and context |
+| Claude Code | Technical implementation and verification of Codex's work |
+| Codex | Technical implementation and verification of Claude Code's work |
+| OpenCode via OpenRouter | Mostly small coding tasks when I run out of limits |
+| Orca | Organising technical workspaces, terminals, and review context |
 
-## A handoff should survive a change of agent
+Separate implementation tasks need separate worktrees and clear ownership. For a cross-review, I want a stable commit, the original acceptance criteria, and a record of what was tested. The reviewer should know which change it is judging and whether it has permission to edit it.
 
-A conversation in one terminal is not automatically context in another. I want the next agent to have enough information to begin without reconstructing the whole discussion.
-
-A useful handoff looks like this:
-
-```text
-Task: Review the change at the supplied commit.
-Repository and worktree: [exact path]
-Branch and commit: [exact identifiers]
-Expected behaviour: [observable acceptance criteria]
-Scope: Read-only review; do not modify the implementation.
-Verification: [commands run, results, and remaining gaps]
-Output: Findings with file locations, impact, and reproduction steps.
-```
-
-The same structure works when moving from Claude Code to Codex, or from an OpenCode implementation to a Hermes review. I can change the agent while keeping the task's contract clear.
-
-## More choice still needs a review budget
-
-OpenRouter makes it convenient to try different models through these agents. I still need to consider how much context I send, how often I repeat the same investigation, and how many finished changes I can review.
-
-I am not claiming a speed improvement or a cost saving from this setup. Those need measurement. The things I want to track are repair rounds, time waiting for review, total usage per completed task, and whether the final change is easier to assess.
-
-For now, the useful pattern is straightforward: choose an agent and model for a specific job, give that job a clear workspace boundary, and bring back a result I can inspect. Orca keeps the sessions close together. Clear ownership and verification are what make working with them together manageable.
+That keeps parallel sessions understandable. Hermes helps me think. Claude Code and Codex carry the main technical work and check each other. OpenCode gives me a fallback for smaller work. Orca gives the technical activity a place to live, while I stay responsible for deciding whether the result is ready.
