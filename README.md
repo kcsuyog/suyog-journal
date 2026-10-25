@@ -35,6 +35,21 @@ draft: false
 
 Images within posts use `![Description](/images/mountains.jpg)`. Dates are interpreted in UTC. Drafts and future-dated posts are excluded from pages, search, sitemap, and RSS. Future posts need a new deployment on or after their publication date; there is no scheduled publishing service. To preview a draft, temporarily set `draft: false` and a non-future date locally, then revert before committing. Categories are generated from published posts. Commit and push to the connected GitHub branch to publish.
 
+## Admin editor
+
+`/admin/` is a browser editor, adapted from `kcsuyog/suryachhetriblogs`. Sign in with a fixed username and password to list, search, preview, write, publish, and remove posts. Bodies are written in Markdown, and a preview uses the site's own stylesheet. Cover and inline images (JPG, PNG, WebP, or GIF; up to 1 MB each and 3 MB for each save) are committed together with the post in one Git commit on `main` through `netlify/functions/admin.mjs`. Netlify then rebuilds the site. The editor stops a save, and does not overwrite, when the post changed on GitHub after you loaded it. A signed HttpOnly session cookie lasts 12 hours.
+
+Add these Netlify environment variables (Functions scope):
+
+| Variable | Value |
+| --- | --- |
+| `ADMIN_USERNAME` | Login name |
+| `ADMIN_PASSWORD` | At least 12 characters |
+| `ADMIN_SESSION_SECRET` | At least 32 characters (`openssl rand -hex 32`) |
+| `GITHUB_TOKEN` | Fine-grained token for `kcsuyog/suyog-journal` only, **Contents: Read and write** |
+
+If you change the password or the secret, all current sessions end. Plain `npm run dev` does not run the function. To test locally, use Netlify Dev with a gitignored `.env`. `/admin/` is not in the sitemap and `robots.txt`, and it sends `noindex`.
+
 ## Validate
 
 ```sh
